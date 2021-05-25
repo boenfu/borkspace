@@ -48,6 +48,12 @@ export default class MenuBuilder {
             this.mainWindow.webContents.inspectElement(x, y);
           },
         },
+        {
+          label: 'Dark mode toggle',
+          click: () => {
+            this.mainWindow.webContents.send('dark-mode');
+          },
+        },
       ]).popup({ window: this.mainWindow });
     });
   }
