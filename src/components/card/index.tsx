@@ -7,10 +7,10 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
       <div {...props} className={`${className} ${style.card}`} ref={ref}>
-        2
+        {children}
       </div>
     );
   }

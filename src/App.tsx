@@ -7,6 +7,7 @@ import { useBoolean, useKeyPress } from 'ahooks';
 // import Darkmode from 'darkmode-js';
 import './App.global.css';
 import Card from './components/card';
+import terminal from './cards/terminal';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -32,7 +33,7 @@ const Home = () => {
             y: 0,
             w: 3,
             h: 2,
-            isResizable: true,
+            static: true,
           },
           {
             i: 'c',
@@ -40,6 +41,7 @@ const Home = () => {
             y: 0,
             w: 1,
             h: 2,
+            static: true,
           },
         ],
       }}
@@ -56,7 +58,9 @@ const Home = () => {
       isDroppable
     >
       <Card key="a" />
-      <Card key="b" />
+      <Card key="b">
+        <terminal.component />
+      </Card>
       <Card key="c" />
     </ResponsiveGridLayout>
   );
@@ -75,10 +79,9 @@ export default function App() {
         </Switch>
       </Router>
       <Drawer
-        title="选择卡片"
+        title={false}
         placement="bottom"
-        onClose={setFalse}
-        closable
+        closable={false}
         mask={false}
         visible={visible}
       >
